@@ -1,0 +1,253 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  background-color: #484574;
+  color: #fefbf4;
+}
+
+.desktop-nav {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  justify-content: space-between;
+  background-color: #1c1c34;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.desktop-nav .navbar ul {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  padding: 0px 40px;
+}
+
+.navbar-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-item:hover {
+  cursor: pointer;
+  /* background-color: #fc6c3e; */
+  /* background-color: #f24a02d0; */
+  /* background-color: #a088cf; */
+  background-color: #fc6c04df;
+}
+
+.navbar li {
+  list-style-type: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.section-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 24px;
+}
+
+.search-bar {
+  min-width: min(800px, 60%);
+  display: flex;
+  flex-direction: row;
+  border: 8px double #ae2b8450;
+  border-radius: 20px;
+  background-color: #fefbf4;
+  z-index: 3;
+}
+
+.search-bar * {
+  padding: 8px;
+}
+
+.search-bar input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-right: 2px solid #ae2b8450;
+}
+
+.search-bar input:focus {
+  outline: none;
+  color: #323232;
+}
+
+.search-bar svg {
+  padding-right: 16px;
+  padding-left: 16px;
+  border-radius: 0 10px 10px 0;
+  color: #ae2b24;
+}
+
+.search-bar svg:hover {
+  background-color: #ff80003a;
+  cursor: pointer;
+  color: #ae2b8490;
+}
+
+.container-cards {
+  width: min(900px, 80%);
+  background: #1a1a1480;
+  margin: -70px 0 0 0;
+  padding: 140px 20px 0px 20px;
+  z-index: 2;
+}
+
+.card > div:not(".priority-color") {
+  padding: 16px;
+}
+
+.priority-color {
+  height: 8px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.priority-color-has-color {
+  background-color: transparent;
+}
+
+.priority-no-color {
+  background-color: #1c1c34;
+  height: 8px;
+  width: 30%;
+}
+
+.priority-color:has(
+    + .header-card > .priority > .priority-value[status="very-high"]
+  ) {
+  background-color: #ff2222e8;
+}
+
+.priority-color:has(
+    + .header-card > .priority > .priority-value[status="high"]
+  ) {
+  background-color: #eeee00;
+}
+
+.priority-color:has(
+    + .header-card > .priority > .priority-value[status="medium"]
+  ) {
+  background-color: #008080;
+}
+
+.priority-color:has(
+    + .header-card > .priority > .priority-value[status="low"]
+  ) {
+  background-color: #aaffff28;
+}
+.header-card {
+  padding: 20px 0px 20px 20px;
+  display: flex;
+  background-color: #1c1c34;
+  justify-content: space-between;
+}
+
+.card p {
+  margin: 0;
+  transition: all inset 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  cursor: pointer;
+}
+
+.card:active .priority-color {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+.card:active .header-card {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.card:active .body-card {
+  border: 0 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.card:active .footer-card {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.card:hover .header-card,
+.card:hover .footer-card {
+  background-color: #2c2c84;
+}
+
+.label-id,
+.label-type,
+.label-priority,
+.label-status {
+  color: gray;
+}
+
+.status-value {
+  padding: 4px 24px 4px 4px;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.priority-no-color:has(
+    + .header-card > .priority > .priority-value[status="medium"]
+  ) {
+  background-color: #008080;
+}
+
+.status-value[status="ended"] {
+  background-color: green;
+  color: #00ff20;
+}
+
+.status-value[status="ongoing"] {
+  background-color: blue;
+  color: lightblue;
+}
+
+.status-value[status="canceled"] {
+  background-color: gray;
+  color: lightgray;
+}
+
+.status-value[status="not-started"] {
+  border-width: 1px 0px 1px 1px;
+  border-style: solid solid solid solid;
+  border-color: yellow;
+  background-color: #ffff8080;
+  color: yellow;
+}
+
+.body-card {
+  background-color: #c2c2c2;
+  padding: 16px;
+  color: black;
+}
+
+.footer-card {
+  background-color: #5a4276;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  padding: 0 20px;
+  height: 42px;
+  margin: 0 0 60px 0;
+}
